@@ -1,0 +1,43 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.header {
+  background: #ddd;
+}
+
+.nav {
+  display: flex;
+}
+
+.container {
+  margin: 2.2rem;
+  padding-top: 0.8rem;
+}
+
+.principal {
+  background: #ddd;
+}
+
+.principal h1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.4rem;
+  color: #555;
+}
+
+.principal p {
+  font-size: 0.8rem;
+  letter-spacing: 0.4rem;
+  color: #333;
+}
+
+.footer {
+  background: #ddd;
+  padding-top: 1.2rem;
+}

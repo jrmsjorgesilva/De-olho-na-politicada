@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rastreador de Politicos</title>
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <ul class="nav">
+          <li>Home</li>
+          <li>About</li>
+          <li>Fuckoff</li>
+          <li>Getout</li>
+        </ul>
+      </header>
+      <section class="principal">
+        <h1>APP DE BUSCA DE POLITICOS</h1>
+        <p>
+          Disponibilizamos uma lista completa de pilantr... digo politicos que
+          participarão das próximas eleições
+        </p>
+      </section>
+      <footer class="footer">
+        <ul>
+          <li>politica de cookies</li>
+          <li>LGPD</li>
+          <li>fale conosco</li>
+        </ul>
+      </footer>
+    </main>
+    <script>
+      const request = async () => {
+        const response = await fetch(
+          "http://politicos.olhoneles.org/api/v0/candidacies/?election_round__election__year=2014"
+        );
+        const json = await response.json();
+        console.log(json);
+      };
+
+      request();
+    </script>
+  </body>
+</html>
