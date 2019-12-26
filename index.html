@@ -4,25 +4,84 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Rastreador de Politicos</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Inria+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <!-- title -->
+    <title>
+      Rastreador de Politicos | app simples para disponibilizar informações
+      sobre politicos através da API Olho Neles
+    </title>
   </head>
   <body>
     <main class="container">
+      <!-- cabeçalho -->
       <header class="header">
-        <ul class="nav">
-          <li>Home</li>
-          <li>About</li>
-          <li>Fuckoff</li>
-          <li>Getout</li>
-        </ul>
+        <nav class="nav">
+          <img src="./img/logo.png" class="logo" alt="logo" />
+          <ul class="nav-items">
+            <li class="nav-item">Home</li>
+            <li class="nav-item">About</li>
+            <li class="nav-item">Fuckoff</li>
+            <li class="nav-item">Getout</li>
+          </ul>
+        </nav>
       </header>
+      <!-- principal -->
       <section class="principal">
-        <h1>APP DE BUSCA DE POLITICOS</h1>
-        <p>
+        <h1 class="title">APP DE BUSCA DE POLITICOS</h1>
+        <p class="subtitle">
           Disponibilizamos uma lista completa de pilantr... digo politicos que
           participarão das próximas eleições
         </p>
       </section>
+      <!-- searchbox -->
+      <section class="searchbox">
+        <div class="header">
+          <h1>Politicos</h1>
+          <input
+            onkeyup="filter();"
+            type="text"
+            id="value"
+            placeholder="digite o nome de um rato"
+          />
+        </div>
+
+        <!-- profiles -->
+        <div class="searchfields">
+          <div class="profile">
+            <span class="icon">M </span>
+            <span class="name">Maria rosario</span>
+          </div>
+        </div>
+        <!-- profile -->
+        <div class="searchfields">
+          <div class="profile">
+            <span class="icon">E </span>
+            <span class="name">Eurico Miranda</span>
+          </div>
+        </div>
+        <!-- profile -->
+        <div class="searchfields">
+          <div class="profile">
+            <span class="icon">R </span>
+            <span class="name">Rosana Conceição</span>
+          </div>
+        </div>
+        <!-- profile -->
+        <div class="searchfields">
+          <div class="profile">
+            <span class="icon">A </span>
+            <span class="name">Amilton Lobão</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- rodape -->
       <footer class="footer">
         <ul>
           <li>politica de cookies</li>
@@ -32,15 +91,32 @@
       </footer>
     </main>
     <script>
-      const request = async () => {
-        const response = await fetch(
-          "http://politicos.olhoneles.org/api/v0/candidacies/?election_round__election__year=2014"
-        );
-        const json = await response.json();
-        console.log(json);
-      };
+      // const request = async () => {
+      //   const response = await fetch(
+      //     "http://politicos.olhoneles.org/api/v0/candidacies/?election_round__election__year=2014"
+      //   );
+      //   const json = await response.json();
+      //   console.log(json);
+      // };
 
-      request();
+      // request();
+
+      const filter = () => {
+        var value, name, profile, i;
+
+        value = document.getElementById("value").value.toUpperCase();
+
+        profile = document.getElementsByClassName("profile");
+
+        for (i = 0; i < profile.length; i++) {
+          name = profile[i].getElementsByClassName("name");
+          if (name[0].innerHTML.toUpperCase().indexOf(value) > -1) {
+            profile[i].style.display = "flex";
+          } else {
+            profile[i].style.display = "none";
+          }
+        }
+      };
     </script>
   </body>
 </html>
